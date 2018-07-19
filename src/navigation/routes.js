@@ -1,10 +1,11 @@
 import {Navigation} from 'react-native-navigation';
 import registerScreens from './navScreen';
+import {Platform} from 'react-native'
 
 registerScreens();
 
 // start the app
-Navigation.startTabBasedApp({
+Platform.OS==='ios'? Navigation.startTabBasedApp({
   tabs: [
     {
       label: 'Login',
@@ -28,4 +29,24 @@ Navigation.startTabBasedApp({
       title: 'Details Screen'
     }
   ]
+})
+: Navigation.startSingleScreenApp({
+  screen: {
+    screen: 'LoginScreen',
+    title: 'Root',
+    topTabs: [{
+        screenId: 'HomeScreen',
+        title: 'Home'
+      },
+      {
+        screenId: 'RegisterationScreen',
+        title: 'Register'
+      },
+      {
+        screenId: 'DetailsSreen',
+        title: 'Details'
+      }
+    ]
+  }
+
 });

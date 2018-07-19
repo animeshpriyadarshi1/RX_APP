@@ -1,5 +1,2 @@
-/** @format */
-
-
-import App from './src/navigation/routes';
+import App from './App';
 

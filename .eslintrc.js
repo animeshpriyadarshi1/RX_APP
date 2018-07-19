@@ -26,7 +26,7 @@ module.exports = {
             allow: ["foo_", "_bar"]
         }],
         "max-len": ["error", {
-            code: 80
+            code: 100
         }],
         "require-jsdoc": [
             "error",

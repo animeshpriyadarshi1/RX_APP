@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, View,Button} from 'react-native';
+import List from '../components/flatList'
 
 
 
@@ -29,6 +30,7 @@ export default class HomeScreen extends Component{
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Home Screen</Text>
+        < List/>
       </View>
     );
   }

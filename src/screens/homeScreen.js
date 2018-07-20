@@ -7,16 +7,28 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View,Button} from 'react-native';
 
 
 
 export default class HomeScreen extends Component{
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+     onNavigatorEvent(event) {
+       if (event.id === 'tabSelected') {
+         this.props.navigator.setTitle({
+           title: "Home Screen" // the new title of the screen as appears in the nav bar
+         });
+       }
+     }
+    
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Home Screen</Text>
-        
       </View>
     );
   }

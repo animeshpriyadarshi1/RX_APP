@@ -11,7 +11,24 @@ import {StyleSheet, Text, View} from 'react-native';
 
 
 export default class RegisterationScreen extends Component{
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+
+    onNavigatorEvent(event) {
+      if (event.id === 'tabSelected'){
+ this.props.navigator.setTitle({
+   title: "Register Screen"// the new title of the screen as appears in the nav bar
+ });
+      }
+    }
+  
+ 
   render() {
+   
+     console.log("THIS PROPS---", this.props)
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Registeration</Text>

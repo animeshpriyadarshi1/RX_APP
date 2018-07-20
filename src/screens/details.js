@@ -10,6 +10,17 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 
 export default class AppDetails extends Component{
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+  onNavigatorEvent(event) {
+    if (event.id === 'tabSelected') {
+      this.props.navigator.setTitle({
+        title: "Details Screen"
+      });
+    }
+  }
   render() {
     return (
       <View style={styles.container}>

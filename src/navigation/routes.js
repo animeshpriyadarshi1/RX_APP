@@ -32,11 +32,11 @@ Platform.OS==='ios'? Navigation.startTabBasedApp({
 })
 : Navigation.startSingleScreenApp({
   screen: {
-    screen: 'LoginScreen',
-    title: 'Root',
+    screen: 'HomeScreen',
+    title: 'Home Screen',
     topTabs: [{
         screenId: 'HomeScreen',
-        title: 'Home'
+        title: 'Home',
       },
       {
         screenId: 'RegisterationScreen',
@@ -47,6 +47,5 @@ Platform.OS==='ios'? Navigation.startTabBasedApp({
         title: 'Details'
       }
     ]
-  }
-
+  },
 });

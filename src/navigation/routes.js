@@ -40,6 +40,7 @@ Platform.OS==='ios'? Navigation.startTabBasedApp({
         navBarTextColor: 'white',
         navBarTextFontSize: 20,
         largeTitle: true, 
+        navBarHeight: 40,
         topTabsHeight: 50,
         topBarBorderWidth: 5.5,
         // topTabTextColor: 'black',

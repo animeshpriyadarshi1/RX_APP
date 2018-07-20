@@ -34,18 +34,38 @@ Platform.OS==='ios'? Navigation.startTabBasedApp({
   screen: {
     screen: 'HomeScreen',
     title: 'Home Screen',
+    navigatorStyle: {
+        navBarBackgroundColor: 'red',
+        navBarHidden: false,
+        navBarTextColor: 'white',
+        navBarTextFontSize: 20,
+        largeTitle: true, 
+        topTabsHeight: 50,
+        topBarBorderWidth: 5.5,
+        // topTabTextColor: 'black',
+         selectedTopTabTextColor:'white',
+         selectedTopTabIconColor:'white',
+         selectedTopTabIndicatorColor: '#F5FCFF',
+         topTabTextColor: 'grey',
+         topTabIconColor: 'grey'
+    },
     topTabs: [{
         screenId: 'HomeScreen',
         title: 'Home',
+        navBarTextColor: 'white',
+        icon: require('../assets/icons/icons8-home-24.png'),
       },
       {
-        screenId: 'RegisterationScreen',
-        title: 'Register'
+        screenId: 'RegisterationScreen', 
+        title: 'Register',
+        icon: require('../assets/icons/icons8-registration-24.png'),
+
       },
       {
         screenId: 'DetailsSreen',
-        title: 'Details'
-      }
+        title: 'Details',
+        icon: require('../assets/icons/icons8-details-24.png'),
+      },
     ]
   },
 });

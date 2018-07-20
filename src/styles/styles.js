@@ -10,5 +10,16 @@ export default {
     },
     paddingVerticalMD:{
        paddingVertical: 8
+    },
+    flexOne:{
+        flex:1
+    },
+    flexRow:{
+        flexDirection:'row'
+    },
+    justifySpaceBetween:{
+        justifyContent: 'space-between',
     }
+
+    
 }

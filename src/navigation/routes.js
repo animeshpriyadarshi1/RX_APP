@@ -22,6 +22,13 @@ Platform.OS==='ios'? Navigation.startTabBasedApp({
       title: 'Home Screen'
     },
     {
+      label: 'Registeration Screen',
+      screen: 'RegisterationScreen', // this is a registered name for a screen
+       icon: require('../assets/icons/icons8-registration-24.png'),
+      // selectedIcon: require('../img/one_selected.png'), // iOS only
+      title: 'Registeration Screen'
+    },
+    {
       label: 'Details',
       screen: 'DetailsSreen', // this is a registered name for a screen
       icon: require('../assets/icons/icons8-details-24.png'),

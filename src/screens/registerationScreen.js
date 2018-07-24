@@ -26,7 +26,28 @@ import {
   class RegisterationScreen extends Component {
   constructor(props) {
     super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+     this.state = {
+       userFromobj: {
+         FName: "",
+         LName: "",
+         Contact: "",
+         Address:"",
+         City: "",
+         Zip: "",
+         Country:""
+         
+       }
+     };
+     this.updateInputValue = this.updateInputValue.bind(this);
+     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+  updateInputValue(type,e) {
+    let userFromobj = Object.assign({}, this.state.userFromobj); //create copy of object
+    userFromobj[type] = e; //updating value
+    this.setState({
+      userFromobj
+    });
   }
 
 
@@ -43,31 +64,45 @@ import {
     return (
       <ScrollView style={styles.container}>
         <FormLabel> First Name </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style = {{width: 250,height: 50}}
+        onChangeText = {(e) => this.updateInputValue("FName",e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Last Name </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style={{width: 250, height: 50}} 
+          onChangeText={(e) => this.updateInputValue("LName", e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Contact Number </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style={{width: 250, height: 50}} 
+          onChangeText={(e) => this.updateInputValue("Contact", e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Address </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style={{width: 250, height: 50}} 
+          onChangeText={(e) => this.updateInputValue("Address", e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> City </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style={{width: 250, height: 50}} 
+          onChangeText={(e) => this.updateInputValue("City", e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Postal Code </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style={{width: 250, height: 50}} 
+          onChangeText={(e) => this.updateInputValue("Zip", e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Country </FormLabel>
-        < FormInput style={{width: 250, height: 50}} />
+        < FormInput style={{width: 250, height: 50}} 
+          onChangeText={(e) => this.updateInputValue("Country", e)}
+        />
         <FormValidationMessage > {'This field is required'} </FormValidationMessage>
       </ScrollView>
     );
@@ -77,8 +112,6 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
     backgroundColor: '#F5FCFF'
   },
   welcome: {

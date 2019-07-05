@@ -7,11 +7,15 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  Picker,
+  Button
+} from 'react-native';
 import {
   FormLabel,
-  FormInput,
-  FormValidationMessage
+  FormInput
 } from 'react-native-elements';
     import {
       submittUserDetails
@@ -20,14 +24,11 @@ import {
     connect
   } from 'react-redux';
 
-
-
-
   class RegisterationScreen extends Component {
   constructor(props) {
     super(props);
      this.state = {
-       userFromobj: {
+       userObjectData: {
          FName: "",
          LName: "",
          Contact: "",
@@ -43,10 +44,10 @@ import {
   }
 
   updateInputValue(type,e) {
-    let userFromobj = Object.assign({}, this.state.userFromobj); //create copy of object
-    userFromobj[type] = e; //updating value
+    let userObjectData = Object.assign({}, this.state.userObjectData); //create copy of object
+    userObjectData[type] = e; //updating value
     this.setState({
-      userFromobj
+      userObjectData
     });
   }
 
@@ -57,7 +58,11 @@ import {
         title: 'Register Screen'// the new title of the screen as appears in the nav bar
       });
     }
-  }
+   }
+
+   showAlert(p){
+     alert
+   }
 
 
   render() {
@@ -67,43 +72,45 @@ import {
         < FormInput style = {{width: 250,height: 50}}
         onChangeText = {(e) => this.updateInputValue("FName",e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
-
         <FormLabel> Last Name </FormLabel>
         < FormInput style={{width: 250, height: 50}} 
           onChangeText={(e) => this.updateInputValue("LName", e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Contact Number </FormLabel>
         < FormInput style={{width: 250, height: 50}} 
           onChangeText={(e) => this.updateInputValue("Contact", e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Address </FormLabel>
         < FormInput style={{width: 250, height: 50}} 
           onChangeText={(e) => this.updateInputValue("Address", e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> City </FormLabel>
         < FormInput style={{width: 250, height: 50}} 
           onChangeText={(e) => this.updateInputValue("City", e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Postal Code </FormLabel>
         < FormInput style={{width: 250, height: 50}} 
           onChangeText={(e) => this.updateInputValue("Zip", e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
 
         <FormLabel> Country </FormLabel>
-        < FormInput style={{width: 250, height: 50}} 
+         < FormInput style={{width: 250, height: 50}} 
           onChangeText={(e) => this.updateInputValue("Country", e)}
         />
-        <FormValidationMessage > {'This field is required'} </FormValidationMessage>
+        {/* <Picker selectedValue={this.state.userObjectData.Country} 
+        onValueChange={(e) => this.updateInputValue("Country", e)}>
+          <Picker.Item label="India" value="India" />
+          <Picker.Item label="US" value="US" />
+          <Picker.Item label="Germany" value="Germany" />
+        </Picker> */}
+
+        < Button title = 'BUTTON'
+        onPress = {()=>this.props.submittUserDetails(this.state.userObjectData)}
+        />
       </ScrollView>
     );
   }
@@ -128,6 +135,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   isError: state.User.registerationError,
+  details: state.User.userDetails
  
 })
 

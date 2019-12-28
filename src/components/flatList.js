@@ -4,7 +4,7 @@ import {
     View
 } from 'react-native';
 import FlatListRow from './flatListRow';
-import Styles from '../styles/styles'
+import Styles from '../styles/styles';
 
 const showSeperator=()=>(
     <View style = {[Styles.borderBlack, Styles.borderWidthhalf]}/>

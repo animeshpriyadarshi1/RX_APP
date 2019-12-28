@@ -1,3 +1,3 @@
 # RX_APP
 
-Git Tutorial Sesison
+Git Tutorial Sesison by animesh
